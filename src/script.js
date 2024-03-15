@@ -47,3 +47,5 @@ async function converterFormSubmit() {
         console.log("No file selected");
     }
 }
+
+// FIXME: Text and cloud changing even when user closing the dialog without selecting a file
