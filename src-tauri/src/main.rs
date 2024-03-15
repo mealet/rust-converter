@@ -5,7 +5,7 @@ mod commands;
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![commands::console_log])
+        .invoke_handler(tauri::generate_handler![commands::console_log, commands::convertFile])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

@@ -15,10 +15,12 @@
         "all": false,
         "open": true
       },
-      "fs": {
+      "dialog": {
         "all": false,
-        "writeFile": true,
-        "scope": ["$DOWNLOAD/*"]
+        "open": true
+      },
+      "path": {
+        "all": true
       }
     },
     "windows": [

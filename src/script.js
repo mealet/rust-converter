@@ -1,24 +1,47 @@
 const { invoke } = window.__TAURI__.tauri;
-const { writeBinaryFile, BaseDirectory } = window.__TAURI__.fs;
+const { open } = window.__TAURI__.dialog;
+const { extname } = window.__TAURI__.path;
 
 const fileInput = document.getElementById('file-input');
 const dragContainerText = document.getElementById('drag-container-text');
 const formatTo = document.getElementById('format-to');
+const convertButton = document.getElementById('convertButton');
+const cloudIcon = document.getElementById('cloudIcon');
 
-function getFileExtension(filename) {
-    return filename.split('.').pop();
+var inputPath;
+
+async function setConverterFilePath () {
+    selected = open({
+        multiple: false,
+        filters: [{
+            name: "Image",
+            extensions: ["png", "jpg", "webp", "bmp"]
+        }]
+    });
+
+    if (selected != null) {
+        console.log(selected.then(function(result) {
+            inputPath = result;
+            console.log("Selected file: " + inputPath);
+
+            convertButton.disabled = false;
+            dragContainerText.textContent = "File Selected";
+            dragContainerText.style.color = "#91ffa2";
+            cloudIcon.style.color = "#91ffa2";
+        }));
+    } else {
+        console.log("Select canceled")
+    }
 }
 
 async function converterFormSubmit() {
-    if (fileInput.files.length < 1) {
-        return false
+    if (inputPath != null) {
+        invoke("convertFile", {filePath: inputPath, formatTarget: formatTo.value})
+            .then((message) => {
+                dragContainerText.textContent = "Converted!";
+            })
+            .catch((error) => console.log(error));
+    } else {
+        console.log("No file selected");
     }
-    var reader = new FileReader();
-    var handledFile = fileInput.files[0];
-    //reader.onload = () => console.log(reader.result)
-    var res = reader.readAsArrayBuffer(handledFile);
-
-    var uintarr = new Uint8Array(res, 0, 64);
-    console.log(uintarr)
-    await writeBinaryFile({ path: `${handledFile.name}`, contents: uintarr }, { dir: BaseDirectory.Download });
 }

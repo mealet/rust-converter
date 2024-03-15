@@ -11,11 +11,8 @@ edition = "2021"
 tauri-build = { version = "1", features = [] }
 
 [dependencies]
-tauri = { version = "1", features = [ "fs-write-file", "shell-open"] }
-serde = { version = "1", features = ["derive"] }
-serde_json = "1"
-base64 = "0.22.0"
-image = "0.25.0"
+converter_buddy = "0.2.1"
+tauri = { version = "1", features = [ "path-all", "dialog-open", "shell-open"] }
 
 [features]
 # This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!
