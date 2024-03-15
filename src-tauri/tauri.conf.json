@@ -37,7 +37,7 @@
     "bundle": {
       "active": true,
       "category": "Utility",
-      "targets": ["dmg", "deb", "msi", "appimage", "exe"],
+      "targets": ["dmg", "deb", "msi", "appimage"],
       "identifier": "com.rust-convert.mealet",
       "copyright": "©️ 2024 mealet",
       "shortDescription": "Rust Converter",
