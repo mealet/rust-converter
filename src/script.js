@@ -8,7 +8,7 @@ const formatTo = document.getElementById('format-to');
 const convertButton = document.getElementById('convertButton');
 const cloudIcon = document.getElementById('cloudIcon');
 
-var inputPath;
+var inputPath = null;
 
 async function setConverterFilePath () {
     selected = open({
@@ -41,6 +41,8 @@ async function converterFormSubmit() {
                 dragContainerText.textContent = "Converted!";
             })
             .catch((error) => console.log(error));
+        
+        inputPath = null;
     } else {
         console.log("No file selected");
     }
