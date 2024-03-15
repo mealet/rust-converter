@@ -1,6 +1,6 @@
 ![rust-converter](https://github.com/mealet/rust-converter/assets/110933288/5d9b7711-6dd1-4c63-b611-0f5ed9fce054)
 
-# 🦀 Tauri Converter
+# 🦀 Rust Converter
 Tauri Converter - is pretty simple GUI converter made on Rust ✨<br>
 Libraries I used:
 - [Tauri](https://tauri.app/) | **GUI FRAMEWORK**
