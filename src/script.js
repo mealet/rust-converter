@@ -93,6 +93,8 @@ async function converterFormSubmit() {
                     ele.parentElement.remove();
                 });
 
+
+                
                 setTimeout(function () {
                     errorField.hidden = true;
                 }, 5000);
