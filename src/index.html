@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
     <link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Rust Tauri Converter</title>
 </head>
 <body class="d-flex h-100 text-center text-bg-dark" data-bs-theme="dark">
-    <div class="container my-5">
+    <div class="container my-4">
         <h1 class="h1">RustTauri Converter</h1>
         <p class="lead">A file converter created on Rust 🦀</p>
 
@@ -28,14 +29,34 @@
                     </div>
                 </label>
             </div>
+
+            <label class="form-label">Files:</label>
+
+            <div class="queue container" id="queue">
+                <!-- In here javascript pushing files on add -->
+            </div>
             
             <div class="h-100 m-3">
                 <label class="form-label">Convert To: </label>
                 <select name="format-to" id="format-to" class="form-select">
-                <option selected value="png">PNG</option>
-                <option value="jpg">JPG</option>
-                <option value="webp">WEBP</option>
-                <option value="bmp">BMP</option>
+                    <option value="" disabled>-----Photo-----</option>
+                    <option selected value="png">PNG</option>
+                    <option value="jpg">JPG</option>
+                    <option value="bmp">BMP</option>
+                    <option value="tiff">TIFF</option>
+                    <option value="gif">GIF</option>
+                    <option value="webp">WEBP</option>
+                    <option value="" disabled>-----Video-----</option>
+                    <option value="mp4">MP4</option>
+                    <option value="mov">MOV</option>
+                    <option value="mkv">MKV</option>
+                    <option value="avi">AVI</option>
+                    <option value="" disabled>-----Audio-----</option>
+                    <option value="mp3">MP3</option>
+                    <option value="wav">WAV</option>
+                    <option value="m4a">M4A</option>
+                    <option value="ogg">OGG</option>
+                    <option value="aac">AAC</option>
                 </select>
                 <br>
                 <button id="convertButton" class="btn btn-primary" onclick="converterFormSubmit()" disabled>Convert</button>

@@ -11,7 +11,6 @@ edition = "2021"
 tauri-build = { version = "1", features = [] }
 
 [dependencies]
-converter_buddy = "0.2.1"
 tauri = { version = "1", features = [ "path-all", "dialog-open", "shell-open"] }
 
 [features]

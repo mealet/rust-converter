@@ -10,7 +10,5 @@ fn main() {
         .expect("error while running tauri application");
 }
 
-// TODO: Add video & audio files support
-// TODO: Add multiple files support and create queue for them
 // TODO: Create application menu (navbar) with settings
 // TODO: Add convert history to "navbar"
