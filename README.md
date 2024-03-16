@@ -14,14 +14,14 @@ Libraries I used:
 - [FFmpeg](https://ffmpeg.org/) | **FILES CONVERT**
 
 ## 👀 Installation
-1. Install **fmpeg** from official site -> https://ffmpeg.org/download.html
+1. Install **ffmpeg** from official site -> https://ffmpeg.org/download.html
 2. Go to repository's releases
 3. Download latest release for your system
 4. Enjoy :D
 
 ## 🧐 Building
 1. Install Tauri by instructions on [official site](https://tauri.app/).
-2. Install **fmpeg** from official site -> https://ffmpeg.org/download.html
+2. Install **ffmpeg** from official site -> https://ffmpeg.org/download.html
 3. Copy repository and go to it's folder.
 4. Install dependencies:
 ```
