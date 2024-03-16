@@ -1,4 +1,4 @@
-![rust-converter](https://github.com/mealet/rust-converter/assets/110933288/5d9b7711-6dd1-4c63-b611-0f5ed9fce054)
+![rust-converter](https://github.com/mealet/rust-converter/assets/110933288/3e582156-a12b-40b7-82a7-70cbb50eb058)
 
 # 🦀 Rust Converter
 ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmealet%2Frust-converter%2Fmain%2Fpackage.json&query=%24.version&style=for-the-badge&label=version&color=%23ff0d0d)
