@@ -8,6 +8,7 @@ const formatTo = document.getElementById('format-to');
 const convertButton = document.getElementById('convertButton');
 const cloudIcon = document.getElementById('cloudIcon');
 const queueBlock = document.getElementById('queue');
+const errorField = document.getElementById('error-field');
 
 var currentFiles = [];
 
@@ -71,7 +72,8 @@ async function converterFormSubmit() {
                 filePath: currentFiles[i],
                 formatTarget: formatTo.value,
                 outputDir: currentOutputDir,
-                formatName: currentBasename.replace( currentExtname, "" )
+                formatName: currentBasename.replace( currentExtname, "" ),
+                inputFormat: currentExtname
             })
             .then((message) => {
                 document.getElementsByName(`icon-queue`).forEach(function(ele, idx) {
@@ -83,7 +85,18 @@ async function converterFormSubmit() {
                     ele.style.bottom = "7px";
                 });
             })
-            .catch((error) => console.log(error));
+            .catch((error) => {
+                errorField.textContent = error;
+                errorField.hidden = false;
+
+                document.getElementsByName(`icon-queue`).forEach(function(ele, idx) {
+                    ele.parentElement.remove();
+                });
+
+                setTimeout(function () {
+                    errorField.hidden = true;
+                }, 5000);
+            });
             i++;
         }
 

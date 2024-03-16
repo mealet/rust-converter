@@ -6,7 +6,7 @@
   },
   "package": {
     "productName": "rust-converter",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "tauri": {
     "allowlist": {
@@ -27,7 +27,7 @@
       {
         "title": "RT Converter",
         "width": 595,
-        "height": 761,
+        "height": 790,
         "resizable": true
       }
     ],

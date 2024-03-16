@@ -44,3 +44,14 @@
 .form-select {
     border-color: #8d8d8d;
 }
+
+.error-block {
+    background-color: #a70000;
+    border-radius: 5px;
+    padding: 7px;
+    width: 484px;
+    margin: 0 auto;
+    font-family: Consolas, monospace;
+    position: relative;
+    transition: opacity 0.6s linear;
+}
