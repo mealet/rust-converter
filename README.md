@@ -12,17 +12,19 @@ Libraries I used:
 - [Tauri](https://tauri.app/) | **GUI FRAMEWORK**
 - [Bootstrap](https://getbootstrap.com/) | **GUI STYLES**
 - [Vanilla JS](https://tauri.app/v1/guides/getting-started/setup/html-css-js/) | **GUI FUNCTIONS**
-- [Converter Buddy](https://lib.rs/crates/converter_buddy)https://lib.rs/crates/converter_buddy | **FILES CONVERT**
+- [FFmpeg](https://ffmpeg.org/) | **FILES CONVERT**
 
 ## 👀 Installation
-1. Go to repository **"Releases"**.
-2. Download latest release.
-3. Enjoy :D
+1. Install **fmpeg** from official site -> https://ffmpeg.org/download.html
+2. Go to repository's releases
+3. Download latest release for your system
+4. Enjoy :D
 
 ## 🧐 Building
 1. Install Tauri by instructions on [official site](https://tauri.app/).
-2. Copy repository and go to it's folder.
-3. Install dependencies:
+2. Install **fmpeg** from official site -> https://ffmpeg.org/download.html
+3. Copy repository and go to it's folder.
+4. Install dependencies:
 ```
 npm install
 ```
@@ -50,4 +52,4 @@ Read more in [LICENSE file](/LICENSE)
  - Tauri - https://tauri.app/
  - Rust - https://www.rust-lang.org/
  - Bootstrap - https://getbootstrap.com/
- - Converter Buddy Crate - https://crates.io/crates/converter_buddy/0.1.0
+ - FFmpeg - https://ffmpeg.org/
