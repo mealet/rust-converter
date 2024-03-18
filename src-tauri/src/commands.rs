@@ -35,7 +35,7 @@ pub fn console_log(msg: &str) -> String {
 // }
 
 #[tauri::command]
-pub fn convertFile(filePath: &str, formatTarget: &str, outputDir: &str, formatName: &str) -> String {
+pub fn convertFile(filePath: &str, formatTarget: &str, outputDir: &str, formatName: &str, iterIndex: i32) -> String {
     let outputConvert = format!("{}/{}converted.{}", outputDir, &formatName, formatTarget);
 
     if ["png", "jpg", "bmp", "tiff", "gif", "webp"].contains(&formatTarget) {
@@ -58,7 +58,7 @@ pub fn convertFile(filePath: &str, formatTarget: &str, outputDir: &str, formatNa
         .expect("Failed to convert");
     }
 
-    return "File converted!".to_string();
+    return iterIndex.to_string();
 }
 
 // ffmpeg -i input.mp4 -c:v libx264 -c:a pcm_s16le output.avi
