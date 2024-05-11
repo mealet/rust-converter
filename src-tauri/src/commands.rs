@@ -1,4 +1,4 @@
-use std::process::Command;
+use std::{os::windows::process::CommandExt, process::Command};
 
 #[tauri::command]
 pub fn console_log(msg: &str) -> String {
@@ -35,28 +35,54 @@ pub fn console_log(msg: &str) -> String {
 // }
 
 #[tauri::command]
-pub fn convertFile(filePath: &str, formatTarget: &str, outputDir: &str, formatName: &str, iterIndex: i32) -> String {
+pub fn convertFile(filePath: String, formatTarget: String, outputDir: String, formatName: String, iterIndex: i32) -> String {
     let outputConvert = format!("{}/{}converted.{}", outputDir, &formatName, formatTarget);
 
-    if ["png", "jpg", "bmp", "tiff", "gif", "webp"].contains(&formatTarget) {
-        let mut convertCommand = Command::new("ffmpeg")
-        .arg("-i")
-        .arg(filePath)
-        .arg(outputConvert)
-        .output()
-        .expect("Failed to convert");
-    } else {
-        let mut convertCommand = Command::new("ffmpeg")
-        .arg("-i")
-        .arg(filePath)
-        .arg("-c:v")
-        .arg("libx264")
-        .arg("-c:a")
-        .arg("pcm_s16le")
-        .arg(outputConvert)
-        .output()
-        .expect("Failed to convert");
-    }
+    std::thread::spawn(move || {
+        if ["png", "jpg", "bmp", "tiff", "gif", "webp"].contains(&formatTarget.as_str()) {
+            if cfg!(target_os = "windows") {
+                let mut convertCommand = Command::new("ffmpeg")
+                .arg("-i")
+                .arg(filePath)
+                .arg(outputConvert)
+                .creation_flags(winapi::um::winbase::CREATE_NO_WINDOW)
+                .spawn()
+                .expect("Failed to convert");
+            } else {
+                let mut convertCommand = Command::new("ffmpeg")
+                .arg("-i")
+                .arg(filePath)
+                .arg(outputConvert)
+                .output()
+                .expect("Failed to convert");
+            }
+        } else {
+            if cfg!(target_os = "windows") {
+                let mut convertCommand = Command::new("ffmpeg")
+                    .arg("-i")
+                    .arg(filePath)
+                    .arg("-c:v")
+                    .arg("libx264")
+                    .arg("-c:a")
+                    .arg("pcm_s16le")
+                    .arg(outputConvert)
+                    .creation_flags(winapi::um::winbase::CREATE_NO_WINDOW)
+                    .spawn()
+                    .expect("Failed to convert");
+            } else {
+                let mut convertCommand = Command::new("ffmpeg")
+                    .arg("-i")
+                    .arg(filePath)
+                    .arg("-c:v")
+                    .arg("libx264")
+                    .arg("-c:a")
+                    .arg("pcm_s16le")
+                    .arg(outputConvert)
+                    .output()
+                    .expect("Failed to convert");
+            }
+        }
+    });
 
     return iterIndex.to_string();
 }
