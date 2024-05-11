@@ -87,4 +87,4 @@ pub fn convertFile(filePath: String, formatTarget: String, outputDir: String, fo
     return iterIndex.to_string();
 }
 
-// ffmpeg -i input.mp4 -c:v libx264 -c:a pcm_s16le output.avi
+// ffmpeg -i input.mp4 -c:v libx264 -c:a pcm_s16le output.avi 
