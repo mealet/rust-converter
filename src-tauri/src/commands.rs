@@ -32,7 +32,7 @@ pub fn console_log(msg: &str) -> String {
 //     };
 
 //     return ConvResult;
-// } 
+// }  
 
 #[tauri::command]
 pub fn convertFile(filePath: String, formatTarget: String, outputDir: String, formatName: String, iterIndex: i32) -> String {
